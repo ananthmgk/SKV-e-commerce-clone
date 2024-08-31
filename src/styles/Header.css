@@ -5,10 +5,16 @@
   font-family: sans-serif;
 }
 
-.header .logo {
+.shop-name {
   font-size: 20px;
   font-weight: bold;
   display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: inherit;
+}
+
+.logo-img {
+  height: 60px;
 }

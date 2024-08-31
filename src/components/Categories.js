@@ -8,6 +8,7 @@ import kitchenAccessoriesImage from "../assets/Images/categories/Kitchen Accesso
 import gadgetsImages from "../assets/Images/categories/Gadgets.png";
 import cleaningSuppliesImages from "../assets/Images/categories/Cleaning Supplies.png";
 import automotiveImages from "../assets/Images/categories/Automotive.png";
+import funGiftsImages from "../assets/Images/categories/Fun Gifts.webp";
 
 const categories = [
   { name: "Household Items", image: houseHoldItemsImage },
@@ -19,6 +20,7 @@ const categories = [
   { name: "Gadgets", image: gadgetsImages },
   { name: "Cleaning Supplies", image: cleaningSuppliesImages },
   { name: "Automotive", image: automotiveImages },
+  { name: "Fun Gifts", image: funGiftsImages },
 ];
 
 const Categories = () => {

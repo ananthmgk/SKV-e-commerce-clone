@@ -5,3 +5,9 @@ export function filterProducts(products, searchInput) {
       .includes(searchInput.toLowerCase());
   });
 }
+
+export function calculateDiscount(originalPrice, discountedPrice) {
+  let discount = originalPrice - discountedPrice;
+  let discountPercentage = (discount / originalPrice) * 100;
+  return Math.round(discountPercentage);
+}

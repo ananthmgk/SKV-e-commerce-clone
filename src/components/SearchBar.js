@@ -1,10 +1,25 @@
 import { useState } from "react";
-import { productCards } from "../content";
 import { filterProducts } from "../uttilites/functions";
 import "../styles/SearchBar.css";
-const SearchBar = (props) => {
+
+const SearchBar = ({ allproducts, setFilteredProducts }) => {
+  const searchedData = () => {
+    const data = filterProducts(allproducts, searchInput);
+    setFilteredProducts(data);
+  };
+  function debounceing(func) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func(args);
+      }, 1000);
+    };
+  }
+
   const [searchInput, setSearchInput] = useState("");
-  const [products, setProducts] = useState(productCards[0].payload.content);
+  const starterDebounce = debounceing(searchedData);
+
   return (
     <div className="search-container">
       <input
@@ -12,14 +27,17 @@ const SearchBar = (props) => {
         type="text"
         placeholder="Search for a Product"
         value={searchInput}
+        // onChange={(e) => {
+        //   setSearchInput(e.target.value);
+
+        //   setFilteredProducts(filterProducts(allproducts, searchInput));
+        // }}
         onChange={(e) => {
           setSearchInput(e.target.value);
         }}
+        onKeyUp={starterDebounce}
       />
-      <button
-        className="search-btn"
-        onClick={() => setProducts(filterProducts(products, searchInput))}
-      >
+      <button className="search-btn" onClick={searchedData}>
         Search
       </button>
     </div>

@@ -2,6 +2,7 @@ import "../styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ImageCarousel from "./ImageCarousel";
 
 // npm i --save @fortawesome/pro-solid-svg-icons
 // npm i --save @fortawesome/pro-regular-svg-icons
@@ -24,16 +25,14 @@ const Header = () => {
         </div>
       </header>
       <main id="banner">
-        <button>
+        {/* <button className="left-arrow-btn">
           <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
-        <img
-          src="https://img.cdnx.in/41613/_slider/slide_1713610367107-1713610368936.jpg?width=1920&amp;format=jpeg"
-          alt="banner1"
-        />
-        <button>
+        </button> */}
+        <ImageCarousel />
+
+        {/* <button className="right-arrow-btn">
           <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+        </button> */}
       </main>
     </>
   );

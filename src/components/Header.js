@@ -1,8 +1,8 @@
 import "../styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import ImageCarousel from "./ImageCarousel";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 // npm i --save @fortawesome/pro-solid-svg-icons
 // npm i --save @fortawesome/pro-regular-svg-icons
@@ -23,17 +23,18 @@ const Header = () => {
         <div className="shop-name">
           <h1 className="text-3xl font-bold">SKV WORLD</h1>
         </div>
+        <div>
+          <button className="user-icon">
+            <FontAwesomeIcon icon={faCircleUser} size="2x" />
+          </button>
+          <button className="cart-icon">
+            <FontAwesomeIcon icon={faCartShopping} size="2x" />
+          </button>
+          <button className="whatsapp-icon">
+            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+          </button>
+        </div>
       </header>
-      <main id="banner">
-        {/* <button className="left-arrow-btn">
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button> */}
-        <ImageCarousel />
-
-        {/* <button className="right-arrow-btn">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </button> */}
-      </main>
     </>
   );
 };

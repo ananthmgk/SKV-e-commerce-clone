@@ -27,11 +27,6 @@ const SearchBar = ({ allproducts, setFilteredProducts }) => {
         type="text"
         placeholder="Search for a Product"
         value={searchInput}
-        // onChange={(e) => {
-        //   setSearchInput(e.target.value);
-
-        //   setFilteredProducts(filterProducts(allproducts, searchInput));
-        // }}
         onChange={(e) => {
           setSearchInput(e.target.value);
         }}

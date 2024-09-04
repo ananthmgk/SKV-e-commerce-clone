@@ -3,6 +3,8 @@
   padding: 10px 20px;
   background-color: #f8f8f8;
   font-family: sans-serif;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .shop-name {
@@ -16,5 +18,20 @@
 }
 
 .logo-img {
+  height: 60px;
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.cart-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.whatsapp-icon {
+  width: 60px;
   height: 60px;
 }

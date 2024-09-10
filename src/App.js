@@ -7,6 +7,7 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
+import ProductsMenu from "./components/ProductsMenu";
 
 const App = () => {
   return (
@@ -37,6 +38,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact-us",
         element: <ContactUs />,
+      },
+
+      {
+        path: "/product/:ProductId",
+        element: <ProductsMenu />,
       },
     ],
   },

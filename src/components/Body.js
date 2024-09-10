@@ -7,6 +7,7 @@ import { calculateDiscount } from "../uttilites/functions";
 import SearchBar from "./SearchBar";
 import Shimmer from "./Shimmer";
 import Banner from "./Banner";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [allproducts, setAllProducts] = useState([]);
@@ -54,7 +55,16 @@ const Body = () => {
                 product: product,
                 discountPercentage: discountPercentage,
               };
-              return <ProductCards {...props} key={index} />;
+
+              return (
+                <Link
+                  to={"/product/" + "682622706581"}
+                  key={index}
+                  className="product-card-link"
+                >
+                  <ProductCards {...props} />
+                </Link>
+              );
             })
           )}
         </div>

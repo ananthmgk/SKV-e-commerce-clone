@@ -1,0 +1,140 @@
+/* Basic resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Container for the whole page */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product Page Layout */
+.product-page {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left Side - Product Images */
+.product-images {
+  width: 35%;
+}
+
+.thumbnail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbnail-list img {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.main-image img {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+}
+
+/* Right Side - Product Details */
+.product-details {
+  width: 60%;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.product-details .price .current-price {
+  font-weight: bold;
+  color: #333;
+  font-size: 24px;
+}
+
+.product-details .price .original-price {
+  /* text-decoration: line-through; */
+  color: #999;
+  margin-left: 10px;
+}
+
+.product-details .price .discount {
+  color: #f44336;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.points-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-to-cart,
+.buy-now {
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-to-cart {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+}
+
+.buy-now {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.delivery-options h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.pincode-input {
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.check-btn {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delivery-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}

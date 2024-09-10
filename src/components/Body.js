@@ -58,7 +58,12 @@ const Body = () => {
 
               return (
                 <Link
-                  to={"/product/" + "682622706581"}
+                  // to={
+                  //   "/product/" +
+                  //   "little-chief-kids-mini-kitchen-play-set-" +
+                  //   product.prod_sku
+                  // }
+                  to={"/product/" + product.prod_sku}
                   key={index}
                   className="product-card-link"
                 >

@@ -5,7 +5,7 @@ const ProductCards = (props) => {
       <div className="product-image">
         <img
           src={props.product.product_variants[0].thumbnail}
-          alt={props.product.product_variants[0].name}
+          alt={props.product.product_variants[0].thumbnail}
         />
       </div>
       <div className="product-details">
@@ -15,7 +15,11 @@ const ProductCards = (props) => {
           <span>₹{props.product.product_variants[0].mrp}</span>
         </p>
       </div>
-      <button className="add-to-cart-btn">Add to Cart</button>
+      {props.product.product_variants[0].qty === 0 ? (
+        <p>Out of Stock</p>
+      ) : (
+        <button className="add-to-cart-btn">Add to Cart</button>
+      )}
     </div>
   );
 };

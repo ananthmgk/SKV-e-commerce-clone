@@ -1,6 +1,5 @@
 import Categories from "./Categories";
 import "../styles/Body.css";
-import { productCards } from "../content";
 import { useEffect, useState } from "react";
 import ProductCards from "./ProductCards";
 import { calculateDiscount } from "../uttilites/functions";
@@ -38,6 +37,7 @@ const Body = () => {
         setFilteredProducts={setFilteredProducts}
       />
       <Categories />
+
       <div className="product-container">
         <h1>Products</h1>
         <div className="product-list">

@@ -9,28 +9,71 @@ import gadgetsImages from "../assets/Images/categories/Gadgets.png";
 import cleaningSuppliesImages from "../assets/Images/categories/Cleaning Supplies.png";
 import automotiveImages from "../assets/Images/categories/Automotive.png";
 import funGiftsImages from "../assets/Images/categories/Fun Gifts.webp";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { name: "Household Items", image: houseHoldItemsImage },
-  { name: "Trending Now", image: trendingNowImage },
-  { name: "Toys And Sports & Gifts", image: toysAndSportsAndGiftsImage },
-  { name: "Fashion", image: fashionImage },
-  { name: "New Arrivals Items", image: newArrivalsItemsImage },
-  { name: "Kitchen Accessories", image: kitchenAccessoriesImage },
-  { name: "Gadgets", image: gadgetsImages },
-  { name: "Cleaning Supplies", image: cleaningSuppliesImages },
-  { name: "Automotive", image: automotiveImages },
-  { name: "Fun Gifts", image: funGiftsImages },
+  {
+    name: "Household Items",
+    image: houseHoldItemsImage,
+    link: "house-hold-41613",
+  },
+  {
+    name: "Trending Now",
+    image: trendingNowImage,
+    link: "hot-selling-items-41613",
+  },
+  {
+    name: "Toys And Sports & Gifts",
+    image: toysAndSportsAndGiftsImage,
+    link: "toys-41613",
+  },
+  {
+    name: "Fashion",
+    image: fashionImage,
+    link: "fashion-41613",
+  },
+  {
+    name: "New Arrivals Items",
+    image: newArrivalsItemsImage,
+    link: "new-arrivals-items-41613",
+  },
+  {
+    name: "Kitchen Accessories",
+    image: kitchenAccessoriesImage,
+    link: "kitchen-tool-41613",
+  },
+  {
+    name: "Gadgets",
+    image: gadgetsImages,
+    link: "mobile-accessories-41613",
+  },
+  {
+    name: "Cleaning Supplies",
+    image: cleaningSuppliesImages,
+    link: "clinging-supplies-41613",
+  },
+  {
+    name: "Automotive",
+    image: automotiveImages,
+    link: "automotive-41613",
+  },
+  {
+    name: "Fun Gifts",
+    image: funGiftsImages,
+    link: "fun-gifts-41613",
+  },
 ];
 
 const Categories = () => {
   return (
     <div className="categories">
       {categories.map((category, index) => (
-        <div key={index} className="category-card">
-          <img src={category.image} alt={category.name} />
-          <h3>{category.name}</h3>
-        </div>
+        <Link to={"/category/" + category.link} key={index}>
+          <div className="category-card">
+            <img src={category.image} alt={category.name} />
+            <h3>{category.name}</h3>
+          </div>
+        </Link>
       ))}
     </div>
   );

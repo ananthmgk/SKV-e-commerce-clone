@@ -8,7 +8,8 @@ import ContactUs from "./components/ContactUs";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import ProductsMenu from "./components/ProductsMenu";
-import HouseholdItems from "./components/HouseholdItems";
+import CategoryCard from "./components/CategoryCard";
+import CategoryMenu from "./components/CategoryMenu";
 
 const App = () => {
   return (
@@ -42,13 +43,18 @@ const appRouter = createBrowserRouter([
       },
 
       {
-        path: "/product/:ProductId",
+        path: "/product/:ProductMenuId",
         element: <ProductsMenu />,
       },
 
       {
-        path: "/category/:HouseholdItemsId",
-        element: <HouseholdItems />,
+        path: "/category/:CategoryCardId",
+        element: <CategoryCard />,
+      },
+
+      {
+        path: "/categoryMenu/:CategoryMenuId",
+        element: <CategoryMenu />,
       },
     ],
   },

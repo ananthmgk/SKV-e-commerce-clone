@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import "../styles/ProductMenu.css";
+import "../styles/CategoryMenu.css";
 import { calculateDiscount } from "../uttilites/functions";
 
-const ProductsMenu = () => {
-  const { ProductMenuId } = useParams();
+const CategoryMenu = () => {
+  const { CategoryMenuId } = useParams();
+  console.log(CategoryMenuId);
+
   const [products, setProducts] = useState(null);
   useEffect(() => {
     getProductMenu();
@@ -13,10 +15,10 @@ const ProductsMenu = () => {
 
   async function getProductMenu() {
     const response = await fetch(
-      "https://api.shoopy.in/api/v1/org/41613/super-products?online-only=true&child-cat-products=true&page=0&size=20&sort=createdAt,desc"
+      "https://api.shoopy.in/api/v3/web/org/41613/super-products?online-only=true&child-cat-products=true&page=0&size=20&param=root-cat-slugs&value=house-hold-41613&param=cat-slugs&value=house-hold-41613&sort-by=catManual"
     );
     const jsonData = await response.json();
-    setProducts(jsonData?.payload?.content);
+    setProducts(jsonData?.payload?.super_products?.content);
   }
 
   return !products ? (
@@ -24,13 +26,15 @@ const ProductsMenu = () => {
   ) : (
     <>
       {products?.map((product, index) => {
+        console.log(product.prod_sku);
+
         let originalPrice = product.mrp;
         let discountedPrice = product.sale_price;
         let discountPercentage = calculateDiscount(
           originalPrice,
           discountedPrice
         );
-        return product.prod_sku === ProductMenuId ? (
+        return product.prod_sku === CategoryMenuId ? (
           <div key={index} className="product-menu-container">
             <div className="product-menu-page">
               {/* Left Side - Product Images */}
@@ -97,4 +101,4 @@ const ProductsMenu = () => {
   );
 };
 
-export default ProductsMenu;
+export default CategoryMenu;

@@ -7,6 +7,12 @@ const ImageCarousel = () => {
       style={{
         paddingBottom: "30px",
         position: "relative",
+        zIndex: "1",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        marginTop: "90px",
+        marginBottom: "30px",
       }}
     >
       <Carousel

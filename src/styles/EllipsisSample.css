@@ -1,0 +1,54 @@
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  margin-top: 8px;
+}
+
+.discount-tag {
+  background-color: #ffa500;
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.truncate-text {
+  display: -webkit-box;
+  /* stylelint-disable-next-line property-no-unknown */
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical; /* Required for the line clamp to work */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  max-width: 180px; /* Adjust as per your design */
+  margin: 8px 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.add-to-cart {
+  background-color: #ff1744;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: #d50000;
+}

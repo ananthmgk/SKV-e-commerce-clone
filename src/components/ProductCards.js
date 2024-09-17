@@ -9,7 +9,9 @@ const ProductCards = (props) => {
         />
       </div>
       <div className="product-details">
-        <h3>{props.product.product_variants[0].display_name}</h3>
+        <h3 className="truncate-text">
+          {props.product.product_variants[0].display_name}
+        </h3>
         <p className="price">
           ₹{props.product.product_variants[0].sale_price}
           <span>₹{props.product.product_variants[0].mrp}</span>

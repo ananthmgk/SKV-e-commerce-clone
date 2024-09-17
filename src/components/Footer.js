@@ -24,14 +24,6 @@ const Footer = () => {
         <p>Email: QpDmX@example.com</p>
         <p>Address: 123 Main St, Anytown, India</p>
       </div>
-      <div className="social-links">
-        <h4>We Accept</h4>
-        <ul>
-          <li>Visa</li>
-          <li>MasterCard</li>
-          <li>UPI</li>
-        </ul>
-      </div>
     </footer>
   );
 };

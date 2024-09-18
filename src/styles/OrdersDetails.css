@@ -1,0 +1,31 @@
+.not-yet-ordered {
+  width: 200%;
+  height: 100%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-yet-ordered .shop-now-btn {
+  padding: 10px 20px;
+  background-color: #664229;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.not-yet-ordered h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.not-yet-ordered h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}

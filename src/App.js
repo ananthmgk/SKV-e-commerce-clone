@@ -10,6 +10,7 @@ import ErrorPage from "./components/ErrorPage";
 import ProductsMenu from "./components/ProductsMenu";
 import CategoryCard from "./components/CategoryCard";
 import CategoryMenu from "./components/CategoryMenu";
+import AccountPage from "./components/AccountPage";
 
 const App = () => {
   return (
@@ -55,6 +56,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/categoryMenu/:CategoryMenuId",
         element: <CategoryMenu />,
+      },
+
+      {
+        path: "/account",
+        element: <AccountPage />,
       },
     ],
   },

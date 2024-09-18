@@ -7,6 +7,7 @@ import SearchBar from "./SearchBar";
 import Shimmer from "./Shimmer";
 import Banner from "./Banner";
 import { Link } from "react-router-dom";
+import AccountPage from "./AccountPage";
 
 const Body = () => {
   const [allproducts, setAllProducts] = useState([]);

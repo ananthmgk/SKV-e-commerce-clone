@@ -30,15 +30,21 @@ const Header = () => {
         </Link>
 
         <div>
-          <button className="user-icon">
-            <FontAwesomeIcon icon={faCircleUser} size="2x" />
-          </button>
-          <button className="cart-icon">
-            <FontAwesomeIcon icon={faCartShopping} size="2x" />
-          </button>
-          <button className="whatsapp-icon">
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </button>
+          <Link to="/account">
+            <button className="user-icon">
+              <FontAwesomeIcon icon={faCircleUser} size="2x" />
+            </button>
+          </Link>
+          <Link to="/cart">
+            <button className="cart-icon">
+              <FontAwesomeIcon icon={faCartShopping} size="2x" />
+            </button>
+          </Link>
+          <Link to="/whatsapp">
+            <button className="whatsapp-icon">
+              <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+            </button>
+          </Link>
         </div>
       </header>
     </>

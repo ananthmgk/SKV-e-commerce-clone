@@ -1,0 +1,19 @@
+.wallet-details {
+  width: 50%;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.wallet-details h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.wallet-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}

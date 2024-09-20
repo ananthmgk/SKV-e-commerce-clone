@@ -65,15 +65,15 @@ const ProfileDetails = () => {
 
   return (
     <div className="profile-details">
-      <div className="header">
+      <div className="profile-header">
         <h2>Profile Details</h2>
-        <button onClick={handleDeleteClick} className="delete-account">
+        <button onClick={handleDeleteClick} className="profile-delete-account">
           Delete Account
         </button>
       </div>
       <form className="profile-form">
-        <div className="form-group">
-          <label htmlFor="name">Name *</label>
+        <div className="profile-form-group">
+          <label htmlFor="profile-name">Name *</label>
           <input
             type="text"
             id="name"
@@ -85,8 +85,8 @@ const ProfileDetails = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+        <div className="profile-form-group">
+          <label htmlFor="profile-email">Email Address</label>
           <input
             type="email"
             id="email"
@@ -98,8 +98,8 @@ const ProfileDetails = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="phone">Mobile Number *</label>
+        <div className="profile-form-group">
+          <label htmlFor="profile-phone">Mobile Number *</label>
           <input
             type="text"
             id="phone"
@@ -112,7 +112,11 @@ const ProfileDetails = () => {
         </div>
 
         {/* Edit/Save Button */}
-        <button type="button" className="edit-btn" onClick={handleEditClick}>
+        <button
+          type="button"
+          className="profile-edit-btn"
+          onClick={handleEditClick}
+        >
           {isEditable ? "Save Profile" : "Edit Profile"}{" "}
         </button>
       </form>

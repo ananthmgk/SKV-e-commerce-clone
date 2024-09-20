@@ -1,19 +1,19 @@
-.header {
+.app-header {
   display: flex;
   padding: 10px 20px;
   background-color: #f8f8f8;
   font-family: sans-serif;
   flex-direction: row;
   justify-content: space-between;
-  /* position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.shop-name {
+.header-shop-name {
   font-size: 20px;
   font-weight: bold;
   display: flex;
@@ -23,21 +23,21 @@
   color: inherit;
 }
 
-.logo-img {
+.header-logo-img {
   height: 60px;
 }
 
-.user-icon {
+.header-user-icon {
   width: 60px;
   height: 60px;
 }
 
-.cart-icon {
+.header-cart-icon {
   width: 60px;
   height: 60px;
 }
 
-.whatsapp-icon {
+.header-whatsapp-icon {
   width: 60px;
   height: 60px;
 }

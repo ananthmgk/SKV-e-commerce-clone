@@ -1,5 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import slide1SPAWorld from "../assets/Images/slider/Slide1-SPA-World.jpg";
+import slide2SPAWorld from "../assets/Images/slider/Slide2-SPA-World.jpg";
 
 const ImageCarousel = () => {
   return (
@@ -67,7 +69,7 @@ const ImageCarousel = () => {
         swipeable
       >
         <img
-          src="https://img.cdnx.in/41613/_slider/slide_1713610367107-1713610368936.jpg"
+          src={slide1SPAWorld}
           alt="banner1"
           style={{
             display: "block",
@@ -76,7 +78,7 @@ const ImageCarousel = () => {
           }}
         />
         <img
-          src="https://img.cdnx.in/41613/_slider/slide_1712648426911-1712648426793.jpg"
+          src={slide2SPAWorld}
           style={{
             display: "block",
             margin: "auto",

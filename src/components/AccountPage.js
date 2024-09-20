@@ -10,11 +10,11 @@ const AccountPage = () => {
 
   const renderSection = () => {
     switch (activeSection) {
-      case "profile":
+      case "account-page-profile":
         return <ProfileDetails />;
-      case "orders":
+      case "account-page-orders":
         return <OrdersDetails />;
-      case "wallet":
+      case "account-page-wallet":
         return <WalletDetails />;
       default:
         return <ProfileDetails />;
@@ -24,24 +24,36 @@ const AccountPage = () => {
   return (
     <div className="account-page-container">
       {/* Sidebar */}
-      <div className="sidebar">
+      <div className="account-page-sidebar">
         <h2>My Account</h2>
         <ul>
           <li
-            className={activeSection === "profile" ? "selected" : ""}
-            onClick={() => setActiveSection("profile")}
+            className={
+              activeSection === "account-page-profile"
+                ? "account-page-selected"
+                : ""
+            }
+            onClick={() => setActiveSection("account-page-profile")}
           >
             Profile Details
           </li>
           <li
-            className={activeSection === "orders" ? "selected" : ""}
-            onClick={() => setActiveSection("orders")}
+            className={
+              activeSection === "account-page-orders"
+                ? "account-page-selected"
+                : ""
+            }
+            onClick={() => setActiveSection("account-page-orders")}
           >
             Orders
           </li>
           <li
-            className={activeSection === "wallet" ? "selected" : ""}
-            onClick={() => setActiveSection("wallet")}
+            className={
+              activeSection === "account-page-wallet"
+                ? "account-page-selected"
+                : ""
+            }
+            onClick={() => setActiveSection("account-page-wallet")}
           >
             Wallet
           </li>
@@ -49,7 +61,7 @@ const AccountPage = () => {
       </div>
 
       {/* Render the active section */}
-      <div className="content-section">{renderSection()}</div>
+      <div className="account-page-content-section">{renderSection()}</div>
     </div>
   );
 };

@@ -4,18 +4,18 @@
   margin-left: 20px;
 }
 
-.header {
+.profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header h2 {
+.profile-header h2 {
   font-size: 22px;
   font-weight: bold;
 }
 
-.delete-account {
+.profile-delete-account {
   color: red;
   text-decoration: none;
   font-size: 16px;
@@ -25,18 +25,18 @@
   margin-top: 20px;
 }
 
-.form-group {
+.profile-form-group {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.profile-form-group label {
   display: block;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.form-group input {
+.profile-form-group input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
@@ -44,7 +44,7 @@
   border-radius: 4px;
 }
 
-.edit-btn {
+.profile-edit-btn {
   padding: 10px 20px;
   background-color: #664229;
   color: white;
@@ -53,6 +53,6 @@
   cursor: pointer;
 }
 
-.edit-btn:hover {
+.profile-edit-btn:hover {
   background-color: #3f2b16;
 }

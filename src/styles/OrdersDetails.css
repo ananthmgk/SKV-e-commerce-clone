@@ -1,7 +1,7 @@
 .not-yet-ordered {
   width: 200%;
   height: 100%;
-  margin-left: 20px;
+  margin: 100px 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

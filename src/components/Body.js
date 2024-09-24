@@ -6,8 +6,6 @@ import { calculateDiscount } from "../uttilites/functions";
 import SearchBar from "./SearchBar";
 import Shimmer from "./Shimmer";
 import Banner from "./Banner";
-import { Link } from "react-router-dom";
-import AccountPage from "./AccountPage";
 
 const Body = () => {
   const [allproducts, setAllProducts] = useState([]);
@@ -57,20 +55,7 @@ const Body = () => {
                 discountPercentage: discountPercentage,
               };
 
-              return (
-                <Link
-                  // to={
-                  //   "/product/" +
-                  //   "little-chief-kids-mini-kitchen-play-set-" +
-                  //   product.prod_sku
-                  // }
-                  to={"/product/" + product.prod_sku}
-                  key={index}
-                  className="product-card-link"
-                >
-                  <ProductCards {...props} />
-                </Link>
-              );
+              return <ProductCards {...props} key={index} />;
             })
           )}
         </div>

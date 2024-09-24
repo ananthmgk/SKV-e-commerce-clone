@@ -6,7 +6,7 @@ import WalletDetails from "./WalletDetails";
 
 const AccountPage = () => {
   // State to track which section is active
-  const [activeSection, setActiveSection] = useState("profile");
+  const [activeSection, setActiveSection] = useState("account-page-profile");
 
   const renderSection = () => {
     switch (activeSection) {

@@ -4,7 +4,7 @@ import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
-import logo from "../assets/Images/logo/S.P.A.World.webp";
+import logo from "../assets/Images/logo/Skv logo.webp";
 
 // npm i --save @fortawesome/pro-solid-svg-icons
 // npm i --save @fortawesome/pro-regular-svg-icons
@@ -22,7 +22,7 @@ const Header = () => {
         </Link>
         <Link to="/">
           <div className="header-shop-name">
-            <h1 className="text-3xl font-bold">SPA WORLD</h1>
+            <h1 className="text-3xl font-bold">SKV WORLD</h1>
           </div>
         </Link>
 

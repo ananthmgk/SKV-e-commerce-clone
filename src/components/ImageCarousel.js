@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import slide1SPAWorld from "../assets/Images/slider/Slide1-SPA-World.jpg";
-import slide2SPAWorld from "../assets/Images/slider/Slide2-SPA-World.jpg";
+import slide1SPAWorld from "../assets/Images/slider/Slide1-SKV-World.jpg";
+import slide2SPAWorld from "../assets/Images/slider/Slide2-SKV-World.jpg";
 
 const ImageCarousel = () => {
   return (
@@ -47,7 +47,7 @@ const ImageCarousel = () => {
         autoPlaySpeed={3000}
         centerMode={false}
         className=""
-        containerClass="container"
+        containerClass="carousel-container"
         dotListClass=""
         draggable
         focusOnSelect={false}

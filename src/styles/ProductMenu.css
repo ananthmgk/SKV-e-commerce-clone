@@ -28,13 +28,13 @@ body {
   width: 35%;
 }
 
-.thumbnail-list {
+.product-menu-thumbnail-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.thumbnail-list img {
+.product-menu-thumbnail-list img {
   width: 70px;
   height: 70px;
   border: 1px solid #e0e0e0;

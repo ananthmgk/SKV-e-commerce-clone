@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import { calculateDiscount } from "../uttilites/functions";
+import {
+  addToCart,
+  getProductQuantity,
+  calculateDiscount,
+} from "../uttilites/functions";
 import "../styles/CategoryCard.css";
 
 const CategoryCard = () => {
   const { CategoryCardId } = useParams();
   const [products, setProducts] = useState([]);
+  // State to manage cart in local storage.
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     getProductCard();
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
   }, []);
 
   async function getProductCard() {
@@ -38,12 +46,12 @@ const CategoryCard = () => {
             discountedPrice
           );
           return (
-            <Link
-              to={"/categoryMenu/" + product.prod_sku}
-              key={index}
-              className="cat-card-product-card-link"
-            >
-              <div className="cat-card-product-card">
+            <div className="cat-card-product-card">
+              <Link
+                to={"/categoryMenu/" + product.prod_sku}
+                key={index}
+                className="cat-card-product-card-link"
+              >
                 <div className="cat-card-discount-badge">
                   {discountPercentage}% off
                 </div>
@@ -51,21 +59,68 @@ const CategoryCard = () => {
                   <img src={product.thumbnail} alt={product.thumbnail} />
                 </div>
                 <div className="cat-card-product-details">
-                  <h3 className="truncate-text">{product.display_name}</h3>
+                  <h3 className="cat-card-truncate-text">
+                    {product.display_name}
+                  </h3>
                   <p className="cat-card-price">
                     ₹{product.sale_price}
                     <span>₹{product.mrp}</span>
                   </p>
                 </div>
-                {product.qty === 0 ? (
-                  <p>Out of Stock</p>
-                ) : (
-                  <button className="cat-card-add-to-cart-btn">
-                    Add to Cart
+              </Link>
+              {product.qty === 0 ? (
+                <p>Out of Stock</p>
+              ) : (
+                <div className="cat-card-add-to-cart-container">
+                  {getProductQuantity(product.prod_sku) > 0 ? (
+                    <button
+                      className="cat-card-remove-btn"
+                      onClick={() => {
+                        const updatedCart = cart.filter((item) =>
+                          item.prod_sku === product.prod_sku
+                            ? (item.quantity -= 1)
+                            : null
+                        );
+
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify(updatedCart)
+                        );
+                        setCart(updatedCart);
+                      }}
+                    >
+                      -
+                    </button>
+                  ) : null}
+
+                  <button
+                    onClick={() => {
+                      const updatedCart = addToCart(product);
+                      setCart(updatedCart); // update the state
+                    }}
+                    className="cat-card-add-to-cart-btn"
+                  >
+                    {getProductQuantity(product.prod_sku) >= product.qty
+                      ? `Only ${product.qty} left!`
+                      : getProductQuantity(product.prod_sku) > 0
+                      ? getProductQuantity(product.prod_sku)
+                      : "+ Add to Cart"}
                   </button>
-                )}
-              </div>
-            </Link>
+                  {getProductQuantity(product.prod_sku) > 0 &&
+                  getProductQuantity(product.prod_sku) < product.qty ? (
+                    <button
+                      onClick={() => {
+                        const updatedCart = addToCart(product);
+                        setCart(updatedCart); // update the state
+                      }}
+                      className="cat-card-add-btn"
+                    >
+                      +
+                    </button>
+                  ) : null}
+                </div>
+              )}
+            </div>
           );
         })}
       </div>

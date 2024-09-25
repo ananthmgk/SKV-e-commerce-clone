@@ -2,7 +2,6 @@ import Categories from "./Categories";
 import "../styles/Body.css";
 import { useEffect, useState } from "react";
 import ProductCards from "./ProductCards";
-import { calculateDiscount } from "../uttilites/functions";
 import SearchBar from "./SearchBar";
 import Shimmer from "./Shimmer";
 import Banner from "./Banner";
@@ -37,22 +36,16 @@ const Body = () => {
       />
       <Categories />
 
-      <div className="product-container">
+      <div className="product-card-container">
         <h1>Products</h1>
-        <div className="product-list">
+        <div className="product-card-list">
           {filteredProducts.length === 0 ? (
             <p>No products found</p>
           ) : (
             filteredProducts.map((product, index) => {
-              let originalPrice = product.product_variants[0].mrp;
-              let discountedPrice = product.product_variants[0].sale_price;
-              let discountPercentage = calculateDiscount(
-                originalPrice,
-                discountedPrice
-              );
               const props = {
                 product: product,
-                discountPercentage: discountPercentage,
+                // discountPercentage: discountPercentage,
               };
 
               return <ProductCards {...props} key={index} />;

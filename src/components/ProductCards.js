@@ -15,6 +15,7 @@ const ProductCards = (props) => {
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
+    // localStorage.removeItem("cart");
   }, []);
 
   let originalPrice = props.product.mrp;
@@ -49,13 +50,24 @@ const ProductCards = (props) => {
             <button
               className="prod-card-remove-btn"
               onClick={() => {
-                const updatedCart = cart.filter((item) =>
-                  item.prod_sku === props.product.prod_sku
-                    ? (item.quantity -= 1)
-                    : null
-                );
+                const updatedCart = cart
+                  .map((item) => {
+                    if (item.prod_sku === props.product.prod_sku) {
+                      // Reduce quantity
+                      if (item.quantity > 1) {
+                        return { ...item, quantity: item.quantity - 1 }; // Safely reduce quantity
+                      } else {
+                        return null; // Mark for removal if quantity goes to 0
+                      }
+                    }
+                    return item; // No change to other items
+                  })
+                  .filter(Boolean); // Remove any items that are null
 
+                // Save updated cart to localStorage
                 localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+                // Update state
                 setCart(updatedCart);
               }}
             >

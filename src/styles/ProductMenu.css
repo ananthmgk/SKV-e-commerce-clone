@@ -13,8 +13,8 @@ body {
 
 /* Container for the whole page */
 .product-menu-container {
-  max-width: 1200px;
-  margin: 100px 0 0 auto;
+  max-width: 100%;
+  margin: 100px 50 0 50;
 }
 
 /* Product Page Layout */
@@ -24,36 +24,24 @@ body {
 }
 
 /* Left Side - Product Images */
-.product-menu-images {
-  width: 35%;
-}
-
-.product-menu-thumbnail-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.product-menu-thumbnail-list img {
-  width: 70px;
-  height: 70px;
-  border: 1px solid #e0e0e0;
-  cursor: pointer;
-}
-
 .product-menu-main-image img {
-  width: 100%;
+  width: 500px;
   border: 1px solid #e0e0e0;
 }
 
 /* Right Side - Product Details */
 .product-menu-details {
-  width: 60%;
+  width: 58%;
+  margin-left: 50px;
 }
 
 .product-menu-details h1 {
-  font-size: 24px;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
   margin-bottom: 10px;
+  width: 100%;
+  height: 100px;
 }
 
 .product-menu-price {
@@ -70,13 +58,13 @@ body {
 .product-menu-original-price {
   text-decoration: line-through;
   color: #999;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .product-menu-discount {
   color: #f44336;
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .product-menu-points-info {
@@ -85,14 +73,54 @@ body {
   color: #666;
 }
 
+.product-menu-out-of-stock {
+  color: #f44336;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
 .product-menu-action-buttons {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.product-menu-add-to-cart,
-.product-menu-buy-now {
+.product-menu-add-to-cart-container {
+  border: 1px solid red;
+  color: red;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.product-menu-remove-btn {
+  color: red;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.product-menu-add-to-cart-btn {
+  color: red;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.product-menu-add-btn {
+  color: red;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.product-menu-buy-now-btn {
+  background-color: red;
+  color: #fff;
+  width: 250px;
+  font-weight: 600;
+  margin-left: 60px;
   padding: 10px 20px;
   border: none;
   font-size: 16px;
@@ -100,25 +128,14 @@ body {
   border-radius: 5px;
 }
 
-.product-menu-add-to-cart {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  color: #333;
-}
-
-.product-menu-buy-now {
-  background-color: #f44336;
-  color: #fff;
-}
-
 .product-menu-delivery-options h3 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .product-menu-pincode-input {
   padding: 10px;
-  width: 80%;
+  width: 30%;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   margin-bottom: 10px;

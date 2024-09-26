@@ -20,6 +20,10 @@ const CategoryCard = () => {
     setCart(storedCart);
   }, []);
 
+  // useEffect(() => {
+  //   localStorage.removeItem("cart");
+  // }, []);
+
   async function getProductCard() {
     const response = await fetch(
       "https://api.shoopy.in/api/v3/web/org/41613/super-products?online-only=true&child-cat-products=true&page=0&size=20&param=root-cat-slugs&value=" +
@@ -76,16 +80,27 @@ const CategoryCard = () => {
                     <button
                       className="cat-card-remove-btn"
                       onClick={() => {
-                        const updatedCart = cart.filter((item) =>
-                          item.prod_sku === product.prod_sku
-                            ? (item.quantity -= 1)
-                            : null
-                        );
+                        const updatedCart = cart
+                          .map((item) => {
+                            if (item.prod_sku === product.prod_sku) {
+                              // Reduce quantity
+                              if (item.quantity > 1) {
+                                return { ...item, quantity: item.quantity - 1 }; // Safely reduce quantity
+                              } else {
+                                return null; // Mark for removal if quantity goes to 0
+                              }
+                            }
+                            return item; // No change to other items
+                          })
+                          .filter(Boolean); // Remove any items that are null
 
+                        // Save updated cart to localStorage
                         localStorage.setItem(
                           "cart",
                           JSON.stringify(updatedCart)
                         );
+
+                        // Update state
                         setCart(updatedCart);
                       }}
                     >

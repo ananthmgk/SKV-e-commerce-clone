@@ -22,11 +22,10 @@ export const addToCart = (product) => {
   );
 
   if (findProduct !== -1) {
-    // If product exists, increase quantity
     if (storedCart[findProduct].quantity >= product.qty) {
-      null;
+      null; // Do nothing if quantity is already at maximum
     } else {
-      storedCart[findProduct].quantity += 1;
+      storedCart[findProduct].quantity += 1; // If product exists, increase quantity
     }
   } else {
     // If product is new, add it with a quantity property

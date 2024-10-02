@@ -1,27 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Cart.css";
+import { calculateDiscount } from "../uttilites/functions";
 
 const Cart = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "Panasonic AA Battery",
-      price: 20,
-      quantity: 2,
-      outOfStock: false,
-      image:
-        "https://img.cdnx.in/41613/SKU-4474_0-1723631126713.jpg?width=600&format=webp",
-    },
-    {
-      id: 2,
-      name: "Steel Wire Dish Washing Cloths",
-      price: 24,
-      quantity: 1,
-      outOfStock: true,
-      image:
-        "https://img.cdnx.in/41613/SKU-3880_0-1721052881017.webp?width=600&format=webp",
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(storedCart);
+  }, []);
+
+  // Update local storage whenever cartItems state changes
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
 
   const [address, setAddress] = useState({
     name: "",
@@ -33,23 +27,42 @@ const Cart = () => {
   });
 
   const handleQuantityChange = (id, action) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quantity:
-                action === "increase"
-                  ? item.quantity + 1
-                  : Math.max(item.quantity - 1, 1),
+    setCartItems((prevItems) =>
+      prevItems.map((item) => {
+        if (item.prod_sku === id) {
+          if (action === "increase") {
+            if (item.quantity >= item.qty) {
+              alert(
+                `Store has only ${item.qty} units of this product in stock.`
+              );
+              return { ...item, quantity: item.qty }; // set to maximum stock
+            } else {
+              return { ...item, quantity: item.quantity + 1 }; // increment quantity
             }
-          : item
-      )
+          } else if (action === "decrease") {
+            return { ...item, quantity: Math.max(item.quantity - 1, 1) }; // decrement but not below 1
+          }
+        }
+        return item;
+      })
     );
   };
 
+  // Updating Properties in Objects (Immutable Update):
+
+  // A common use case in React is updating an object's properties immutably.
+
+  // const user = { name: "Alice", age: 25 };
+  // const updatedUser = { ...user, age: 26 };
+  // console.log(updatedUser); // Output: { name: 'Alice', age: 26 }
+
+  // The spread operator creates a new object and updates only the property you
+  // specify (in this case, age), leaving other properties unchanged.
+
   const handleRemove = (id) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.prod_sku !== id)
+    );
   };
 
   const handleInputChange = (e) => {
@@ -57,7 +70,33 @@ const Cart = () => {
     setAddress((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const outOfStockCount = items.filter((item) => item.outOfStock).length;
+  const outOfStockCount = cartItems.filter((item) => item.qty === 0).length;
+
+  const salePriceTotal = cartItems.reduce(
+    (total, item) => total + item.sale_price * item.quantity,
+    0
+  );
+
+  const mrpTotal = cartItems.reduce(
+    (total, item) => total + item.mrp * item.quantity,
+    0
+  );
+
+  const savedAmount = mrpTotal - salePriceTotal;
+
+  const discount = () => {
+    let totalDiscountPercentage = cartItems.reduce((total, item) => {
+      let originalPrice = item.mrp;
+      let discountedPrice = item.sale_price;
+      let discountPercentage = calculateDiscount(
+        originalPrice,
+        discountedPrice
+      );
+      return total + discountPercentage;
+    }, 0);
+
+    return totalDiscountPercentage;
+  };
 
   return (
     <div className="cart-container">
@@ -79,8 +118,8 @@ const Cart = () => {
           <div className="cart-contact-details">
             <h3>Contact Details</h3>
             <div className="cart-contact-info">
-              <span>👤 Ananth</span>
-              <span>📞 9751006874</span>
+              <span className="cart-contact-name">👤 Ananth</span>
+              <span className="cart-contact-number">📞 9751006874</span>
             </div>
           </div>
 
@@ -136,47 +175,79 @@ const Cart = () => {
 
         {/* Right Section */}
         <div className="cart-items">
-          <div className="cart-coupon-section">
-            <span>
-              Coupon Applied: <strong>SKVWORLD5</strong>
-            </span>
-            <button className="cart-remove-coupon">Remove</button>
-            <p>Coupon Saving ₹86.25</p>
-          </div>
+          <h1 className="cart-items-counting">Items({cartItems.length})</h1>
 
           {/* Items */}
           <div className="cart-items-list">
-            {items.map((item) => (
+            {cartItems.map((item, index) => (
               <div
-                key={item.id}
-                className={`cart-item ${item.outOfStock ? "out-of-stock" : ""}`}
+                key={index}
+                className={
+                  item.qty === 0 ? "cart-item-out-of-stock" : "cart-item"
+                }
               >
-                <img src={item.image} alt={item.name} />{" "}
-                <div>
-                  <p>{item.name}</p>
-                  <p>₹{item.price}</p>
+                <div className="cart-item-name-price">
+                  <img src={item.thumbnail} alt={item.thumbnailName} />{" "}
+                  <p className="cart-item-name">{item.name}</p>
+                  <p className="cart-item-price">₹{item.sale_price}</p>
                 </div>
-                <div className="quantity-controls">
+                <div className="cart-item-remove-quantity-btn">
                   <button
-                    onClick={() => handleQuantityChange(item.id, "decrease")}
+                    className="cart-remove-item"
+                    onClick={() => handleRemove(item.prod_sku)}
                   >
-                    -
+                    Remove
                   </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    onClick={() => handleQuantityChange(item.id, "increase")}
-                  >
-                    +
-                  </button>
+                  {item.qty === 0 ? (
+                    <p className="out-of-stock">Out of Stock</p>
+                  ) : (
+                    <div className="cart-quantity-controls">
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.prod_sku, "decrease")
+                        }
+                      >
+                        -
+                      </button>
+                      <span className="cart-item-quantity">
+                        {item.quantity}
+                      </span>
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.prod_sku, "increase")
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
                 </div>
-                <button
-                  className="remove-item"
-                  onClick={() => handleRemove(item.id)}
-                >
-                  Remove
-                </button>
               </div>
             ))}
+          </div>
+
+          {/* Bill Details */}
+          <div className="cart-bill-details">
+            <h3>Bill Details</h3>
+            <span>
+              <p>Sub Total</p>
+              <p className="cart-bill-rupees">₹{salePriceTotal}</p>
+            </span>
+            <span>
+              <p>Tax</p>
+              <p className="cart-bill-rupees">₹0</p>
+            </span>
+            <span>
+              <p>Coupon Discount</p>
+              <p className="cart-bill-rupees">-₹{discount()}</p>
+            </span>
+            <span>
+              <p>Payable Amount</p>
+              <p className="cart-bill-rupees">₹{salePriceTotal - discount()}</p>
+            </span>
+            <span className="cart-bill-rupees">
+              ₹{savedAmount} saved so far on this order
+            </span>
           </div>
 
           {/* Continue Button */}

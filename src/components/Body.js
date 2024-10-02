@@ -30,11 +30,11 @@ const Body = () => {
   ) : (
     <div className="body">
       <Banner />
+      <Categories />
       <SearchBar
         allproducts={allproducts}
         setFilteredProducts={setFilteredProducts}
       />
-      <Categories />
 
       <div className="product-card-container">
         <h1>Products</h1>

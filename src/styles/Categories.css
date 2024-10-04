@@ -26,3 +26,21 @@
   margin-top: 40px;
   font-size: 16px;
 }
+
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  .category-card {
+    width: 140px;
+    height: 155px;
+    margin: 30px auto;
+  }
+
+  .category-card img {
+    height: 135px;
+  }
+
+  .category-card h3 {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+}

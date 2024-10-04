@@ -14,7 +14,7 @@ body {
 }
 
 .product-card-container h1 {
-  margin-bottom: 20px;
+  margin: 0 0 20px 20px;
   color: black;
   font-weight: bolder;
   font-size: x-large;
@@ -23,4 +23,40 @@ body {
 .product-card-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.no-product {
+  font-weight: bolder;
+  font-size: xx-large;
+  border: 1px solid red;
+}
+
+/* Styles for Medium to Large Screens (Tablets and Desktops) */
+@media (min-width: 768px) {
+  .product-card-container {
+    padding: 2px;
+  }
+  .product-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  .product-card-container {
+    padding: 2px;
+  }
+}
+
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  .product-card-container h1 {
+    margin-bottom: 15px;
+    color: black;
+    font-weight: bolder;
+    font-size: 16px;
+  }
 }

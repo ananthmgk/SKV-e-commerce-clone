@@ -86,7 +86,7 @@ const ProductCards = (props) => {
               ? `Only ${props.product.qty} left!`
               : getProductQuantity(props.product.prod_sku) > 0
               ? getProductQuantity(props.product.prod_sku)
-              : "+ Add to Cart"}
+              : "+ Add"}
           </button>
           {getProductQuantity(props.product.prod_sku) > 0 &&
           getProductQuantity(props.product.prod_sku) < props.product.qty ? (

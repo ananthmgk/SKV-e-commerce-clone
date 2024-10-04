@@ -2,9 +2,10 @@
   display: flex;
   padding: 10px 20px;
   background-color: #f8f8f8;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,31 +14,126 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.header-shop-name {
-  font-size: 20px;
-  font-weight: bold;
+.header-left {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
+}
+
+.header-shop-name {
+  margin-left: 10px;
+}
+
+.header-shop-name .title-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.header-shop-name .sub-title {
+  font-size: 12px;
+  margin-top: 2px;
+  color: #888;
 }
 
 .header-logo-img {
-  height: 60px;
+  height: 50px;
 }
 
-.header-user-icon {
-  width: 60px;
-  height: 60px;
+.header-right {
+  display: flex;
+  align-items: center;
 }
 
-.header-cart-icon {
-  width: 60px;
-  height: 60px;
-}
-
+.header-user-icon,
+.header-cart-icon,
 .header-whatsapp-icon {
   width: 60px;
   height: 60px;
+  background: none;
+  border: none;
+  margin-left: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #b5651d; /* or any color you prefer */
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+.header-user-icon:hover {
+  opacity: 0.7;
+}
+.header-cart-icon:hover {
+  opacity: 0.7;
+}
+.header-whatsapp-icon:hover {
+  opacity: 0.7;
+}
+
+/* Styles for Medium to Large Screens (Tablets and Desktops) */
+@media (min-width: 768px) {
+  .header-shop-name {
+    font-size: 24px;
+  }
+}
+
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  .app-header {
+    flex-direction: row;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .header-logo-img {
+    height: 50px;
+  }
+
+  .header-shop-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .header-user-icon,
+  .header-cart-icon,
+  .header-whatsapp-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-user-icon,
+  .header-cart-icon,
+  .header-whatsapp-icon {
+    margin: 5px;
+  }
+}
+
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 5px;
+  }
+
+  .header-logo-img {
+    height: 40px;
+  }
+
+  .header-shop-name {
+    font-size: 15px;
+  }
+
+  .header-user-icon,
+  .header-cart-icon,
+  .header-whatsapp-icon {
+    width: 35px;
+    height: 35px;
+  }
 }

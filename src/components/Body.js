@@ -40,7 +40,7 @@ const Body = () => {
         <h1>Products</h1>
         <div className="product-card-list">
           {filteredProducts.length === 0 ? (
-            <p>No products found</p>
+            <p className="no-product">No products found</p>
           ) : (
             filteredProducts.map((product, index) => {
               const props = {

@@ -1,0 +1,22 @@
+/* Styles for Medium to Large Screens (Tablets and Desktops) */
+@media (min-width: 768px) {
+  .header-shop-name {
+    font-size: 24px;
+  }
+}
+
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  .app-header {
+    flex-direction: row;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 5px;
+  }
+}

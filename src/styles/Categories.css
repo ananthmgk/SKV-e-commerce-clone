@@ -1,8 +1,16 @@
+.categories-heading {
+  text-align: start;
+  margin-left: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: rgb(17, 16, 16);
+}
+
 .categories {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 1px;
 }
 
 .category-card {
@@ -17,30 +25,42 @@
 
 .category-card img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
 
 .category-card h3 {
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 16px;
 }
 
-/* Styles for Extra Small Screens */
-@media (max-width: 480px) {
+/* Styles for Medium Screens (Tablets) */
+@media (max-width: 950px) {
   .category-card {
-    width: 140px;
-    height: 155px;
-    margin: 30px auto;
+    width: 120px;
+    height: 110px;
+    margin: 40px 8px;
+  }
+}
+
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  .categories-heading {
+    font-size: 22px;
   }
 
-  .category-card img {
-    height: 135px;
+  .category-card {
+    width: 110px;
+    height: 110px;
+    margin: 30px 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .category-card h3 {
-    margin-top: 25px;
-    font-size: 15px;
+    margin-top: 10px;
+    font-size: 14px;
   }
 }

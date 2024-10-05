@@ -125,8 +125,8 @@
 
 /* ----------------------------------------- */
 
-/* Styles for Medium to Large Screens (Tablets and Desktops) */
-@media (min-width: 768px) {
+/* Styles for Medium Screens (Tablets) */
+@media (max-width: 950px) {
   .product-card {
     width: 31%;
     margin: 1%;

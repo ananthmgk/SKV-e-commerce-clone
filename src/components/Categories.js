@@ -66,16 +66,19 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className="categories">
-      {categories.map((category, index) => (
-        <Link to={"/category/" + category.link} key={index}>
-          <div className="category-card">
-            <img src={category.image} alt={category.name} />
-            <h3>{category.name}</h3>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <>
+      <h1 className="categories-heading">Browse Categories</h1>
+      <div className="categories">
+        {categories.map((category, index) => (
+          <Link to={"/category/" + category.link} key={index}>
+            <div className="category-card">
+              <img src={category.image} alt={category.name} />
+              <h3>{category.name}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 };
 

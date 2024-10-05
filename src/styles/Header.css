@@ -2,7 +2,6 @@
   display: flex;
   padding: 10px 20px;
   background-color: #f8f8f8;
-  font-family: Arial, Helvetica, sans-serif;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -25,19 +24,20 @@
 
 .header-shop-name .title-name {
   font-size: 22px;
-  font-weight: bold;
   margin: 0;
   color: #333;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .header-shop-name .sub-title {
-  font-size: 12px;
+  font-size: 15px;
   margin-top: 2px;
   color: #888;
 }
 
 .header-logo-img {
-  height: 50px;
+  height: 55px;
 }
 
 .header-right {
@@ -76,13 +76,6 @@
 }
 .header-whatsapp-icon:hover {
   opacity: 0.7;
-}
-
-/* Styles for Medium to Large Screens (Tablets and Desktops) */
-@media (min-width: 768px) {
-  .header-shop-name {
-    font-size: 24px;
-  }
 }
 
 /* Styles for Small Screens (Mobile Phones) */

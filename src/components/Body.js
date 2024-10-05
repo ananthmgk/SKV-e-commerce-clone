@@ -35,24 +35,25 @@ const Body = () => {
         allproducts={allproducts}
         setFilteredProducts={setFilteredProducts}
       />
-
-      <div className="product-card-container">
+      <>
         <h1 className="product-card-heading">Products</h1>
-        <div className="product-card-list">
-          {filteredProducts.length === 0 ? (
-            <p className="no-product">No products found Sorry</p>
-          ) : (
-            filteredProducts.map((product, index) => {
-              const props = {
-                product: product,
-                // discountPercentage: discountPercentage,
-              };
+        <div className="product-card-container">
+          <div className="product-card-list">
+            {filteredProducts.length === 0 ? (
+              <p className="no-product">No products found Sorry</p>
+            ) : (
+              filteredProducts.map((product, index) => {
+                const props = {
+                  product: product,
+                  // discountPercentage: discountPercentage,
+                };
 
-              return <ProductCards {...props} key={index} />;
-            })
-          )}
+                return <ProductCards {...props} key={index} />;
+              })
+            )}
+          </div>
         </div>
-      </div>
+      </>
     </div>
   );
 };

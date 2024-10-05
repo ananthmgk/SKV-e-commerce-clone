@@ -27,8 +27,8 @@
 
 .prod-card-discount-badge {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 1px;
+  left: 1px;
   background-color: orange;
   color: #fff;
   padding: 5px 10px;
@@ -100,25 +100,19 @@
   cursor: pointer;
   margin-top: auto;
   border-radius: 5px;
+  font-weight: 700;
 }
 
 .prod-card-remove-btn {
-  color: red;
-  cursor: pointer;
   padding: 10px 20px;
   margin-right: 10px;
 }
 
 .prod-card-add-to-cart-btn {
-  color: red;
-  cursor: pointer;
   padding: 10px 20px;
 }
 
 .prod-card-add-btn {
-  color: red;
-  /* border: 1px solid red; */
-  cursor: pointer;
   padding: 10px 20px;
   margin-left: 10px;
 }
@@ -137,8 +131,6 @@
   }
 
   .product-card-image img {
-    width: 100%;
-    height: auto;
     max-height: 200px;
   }
 }
@@ -160,13 +152,10 @@
     height: 270px;
   }
   .product-card-image {
-    width: 130px;
-    height: 122px;
+    height: auto;
   }
 
   .product-card-image img {
-    width: 100%;
-    height: auto;
     border-radius: 5px;
     margin: 0 auto;
     max-height: 122px;
@@ -188,8 +177,6 @@
   }
 
   .prod-card-remove-btn {
-    color: red;
-    cursor: pointer;
     padding: 1px 1px;
     margin-right: 1px;
   }
@@ -200,8 +187,6 @@
   }
 
   .prod-card-add-btn {
-    color: red;
-    cursor: pointer;
     padding: 1px 1px;
     margin-left: 1px;
   }

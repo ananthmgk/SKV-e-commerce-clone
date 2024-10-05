@@ -14,6 +14,9 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-card-heading {
@@ -40,6 +43,11 @@ body {
 
 /* Styles for Extra Small Screens */
 @media (max-width: 480px) {
+  .product-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .product-card-heading {
     font-size: 22px;
   }

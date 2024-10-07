@@ -40,7 +40,6 @@ const CategoryCard = () => {
     <Shimmer />
   ) : (
     <div className="cat-card-product-container">
-      {/* <h1>{products?.cat_name}</h1> */}
       <div className="cat-card-product-list">
         {products?.map((product, index) => {
           let originalPrice = product.mrp;
@@ -51,6 +50,7 @@ const CategoryCard = () => {
           );
           return (
             <div className="cat-card-product-card">
+              {/* <h1>{product?.cat_name}</h1>  */}
               <Link
                 to={"/categoryMenu/" + product.prod_sku}
                 key={index}

@@ -1,5 +1,10 @@
-/* Styles for Medium Screens (Tablets) */
-@media (max-width: 950px) {
+/* Styling for desktop only */
+@media (min-width: 1024px) {
+  /* Desktop-specific styles here */
+}
+
+/* Styling for tablet */
+@media (min-width: 769px) and (max-width: 1023px) {
   .header-shop-name {
     font-size: 24px;
   }

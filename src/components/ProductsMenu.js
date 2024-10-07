@@ -122,7 +122,7 @@ const ProductsMenu = () => {
                           ? `Only ${product.qty} left!`
                           : getProductQuantity(product.prod_sku) > 0
                           ? getProductQuantity(product.prod_sku)
-                          : "+ Add to Cart"}
+                          : "+ Add"}
                       </button>
                       {getProductQuantity(product.prod_sku) > 0 &&
                       getProductQuantity(product.prod_sku) < product.qty ? (

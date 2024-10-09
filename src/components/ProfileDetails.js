@@ -64,7 +64,7 @@ const ProfileDetails = () => {
   }, []); // This ensures data is retrieved from localStorage on page load
 
   return (
-    <div className="profile-details">
+    <div className="profile-details-container">
       <div className="profile-header">
         <h2>Profile Details</h2>
         <button onClick={handleDeleteClick} className="profile-delete-account">

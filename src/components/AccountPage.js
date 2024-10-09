@@ -22,47 +22,49 @@ const AccountPage = () => {
   };
 
   return (
-    <div className="account-page-container">
-      {/* Sidebar */}
-      <div className="account-page-sidebar">
-        <h2>My Account</h2>
-        <ul>
-          <li
-            className={
-              activeSection === "account-page-profile"
-                ? "account-page-selected"
-                : ""
-            }
-            onClick={() => setActiveSection("account-page-profile")}
-          >
-            Profile Details
-          </li>
-          <li
-            className={
-              activeSection === "account-page-orders"
-                ? "account-page-selected"
-                : ""
-            }
-            onClick={() => setActiveSection("account-page-orders")}
-          >
-            Orders
-          </li>
-          <li
-            className={
-              activeSection === "account-page-wallet"
-                ? "account-page-selected"
-                : ""
-            }
-            onClick={() => setActiveSection("account-page-wallet")}
-          >
-            Wallet
-          </li>
-        </ul>
-      </div>
+    <>
+      <h1 className="account-page-my-account">My Account</h1>
+      <div className="account-page-container">
+        {/* Sidebar */}
+        <div className="account-page-sidebar">
+          <ul>
+            <li
+              className={
+                activeSection === "account-page-profile"
+                  ? "account-page-selected"
+                  : ""
+              }
+              onClick={() => setActiveSection("account-page-profile")}
+            >
+              Profile Details
+            </li>
+            <li
+              className={
+                activeSection === "account-page-orders"
+                  ? "account-page-selected"
+                  : ""
+              }
+              onClick={() => setActiveSection("account-page-orders")}
+            >
+              Orders
+            </li>
+            <li
+              className={
+                activeSection === "account-page-wallet"
+                  ? "account-page-selected"
+                  : ""
+              }
+              onClick={() => setActiveSection("account-page-wallet")}
+            >
+              Wallet
+            </li>
+          </ul>
+        </div>
 
-      {/* Render the active section */}
-      <div className="account-page-content-section">{renderSection()}</div>
-    </div>
+        {/* Render the active section */}
+        <div className="account-page-content-section">{renderSection()}</div>
+      </div>
+    </>
   );
 };
 

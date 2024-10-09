@@ -1,58 +1,247 @@
-/* Profile section styling */
-.profile-details {
-  width: 200%;
-  margin-left: 20px;
+/* Styling for desktop only */
+@media (min-width: 1024px) {
+  /* Profile section styling */
+  .profile-details-container {
+    width: 200%;
+    margin-left: 20px;
+  }
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-header h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .profile-delete-account {
+    color: red;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .profile-form {
+    margin-top: 20px;
+  }
+
+  .profile-form-group {
+    margin-bottom: 20px;
+  }
+
+  .profile-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .profile-edit-btn {
+    padding: 10px 20px;
+    background-color: #664229;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .profile-edit-btn:hover {
+    background-color: #3f2b16;
+  }
 }
 
-.profile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ---------------------------------------------------------------------------------------- */
+
+/* Styling for tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Profile section styling */
+  .profile-details-container {
+    width: 100%;
+  }
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-header h2 {
+    display: none;
+  }
+
+  .profile-delete-account {
+    color: red;
+    text-decoration: none;
+    font-size: 16px;
+    margin-inline-start: auto;
+  }
+
+  .profile-form {
+    margin-top: 5px;
+  }
+
+  .profile-form-group {
+    margin-bottom: 20px;
+  }
+
+  .profile-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .profile-edit-btn {
+    padding: 10px 20px;
+    background-color: #664229;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .profile-edit-btn:hover {
+    background-color: #3f2b16;
+  }
 }
 
-.profile-header h2 {
-  font-size: 22px;
-  font-weight: bold;
+/* ---------------------------------------------------------------------------------------- */
+
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  /* Profile section styling */
+  .profile-details-container {
+    width: 100%;
+  }
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-header h2 {
+    display: none;
+  }
+
+  .profile-delete-account {
+    color: red;
+    text-decoration: none;
+    font-size: 16px;
+    margin-inline-start: auto;
+  }
+
+  .profile-form {
+    margin-top: 5px;
+  }
+
+  .profile-form-group {
+    margin-bottom: 20px;
+  }
+
+  .profile-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .profile-edit-btn {
+    padding: 10px 20px;
+    background-color: #664229;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .profile-edit-btn:hover {
+    background-color: #3f2b16;
+  }
 }
 
-.profile-delete-account {
-  color: red;
-  text-decoration: none;
-  font-size: 16px;
-}
+/* ---------------------------------------------------------------------------------------- */
 
-.profile-form {
-  margin-top: 20px;
-}
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  /* Profile section styling */
+  .profile-details-container {
+    width: 100%;
+  }
 
-.profile-form-group {
-  margin-bottom: 20px;
-}
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.profile-form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+  .profile-header h2 {
+    display: none;
+  }
 
-.profile-form-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  .profile-delete-account {
+    color: red;
+    text-decoration: none;
+    font-size: 16px;
+    margin-inline-start: auto;
+  }
 
-.profile-edit-btn {
-  padding: 10px 20px;
-  background-color: #664229;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .profile-form {
+    margin-top: 5px;
+  }
 
-.profile-edit-btn:hover {
-  background-color: #3f2b16;
+  .profile-form-group {
+    margin-bottom: 20px;
+  }
+
+  .profile-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .profile-edit-btn {
+    padding: 10px 20px;
+    background-color: #664229;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .profile-edit-btn:hover {
+    background-color: #3f2b16;
+  }
 }

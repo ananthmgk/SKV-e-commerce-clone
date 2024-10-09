@@ -15,8 +15,7 @@ const ProductCards = (props) => {
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
-    // localStorage.removeItem("cart");
-  }, []);
+  }, []); // Empty array to ensure it runs only once on mount
 
   let originalPrice = props.product.mrp;
   let discountedPrice = props.product.sale_price;

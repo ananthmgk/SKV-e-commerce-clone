@@ -1,7 +1,9 @@
 import "../styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleUser,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/logo/Skv logo.webp";
@@ -20,7 +22,20 @@ const Header = () => {
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(storedCart);
-  }, [cartItems]);
+  }, []);
+
+  // Listen for cart updates in localStorage to keep count updated
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartItems(storedCart);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <header className="app-header">
@@ -48,11 +63,11 @@ const Header = () => {
             <span className="cart-count">{cartItems.length}</span>
           </button>
         </Link>
-        <Link to="/whatsapp">
+        {/* <Link to="/whatsapp">
           <button className="header-whatsapp-icon">
             <FontAwesomeIcon icon={faWhatsapp} size="2x" />
           </button>
-        </Link>
+        </Link> */}
       </div>
     </header>
   );

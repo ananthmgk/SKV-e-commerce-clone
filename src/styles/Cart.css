@@ -1,227 +1,781 @@
-.cart-container {
-  display: flex;
-  flex-direction: column;
-  width: 93%;
-  align-items: center;
-  justify-content: center;
-  margin: 100px 100px 0 40px;
-}
+/* Styling for desktop only */
+@media (min-width: 1024px) {
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 100px 0 40px;
+  }
 
-.cart-out-of-stock-warning {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border: 1px solid #f5c6cb;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: 600;
-  font-size: large;
-}
+  .cart-out-of-stock-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+  }
 
-.cart-content {
-  display: flex;
-  justify-content: space-between;
-}
+  .cart-content {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.cart-details {
-  width: 55%;
-}
+  .cart-details {
+    width: 55%;
+  }
 
-.cart-details h2 {
-  font-size: 18px;
-  color: #2c2c2c;
-  font-weight: 550;
-  margin-bottom: 20px;
-}
+  .cart-details h2 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
 
-.cart-contact-details,
-.cart-address-form {
-  margin-bottom: 20px;
-  padding: 15px 15px 15px 20px;
-  border: 1px solid burlywood;
-  border-radius: 5px;
-}
+  .cart-contact-details,
+  .cart-address-form {
+    margin-bottom: 20px;
+    padding: 15px 15px 15px 20px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+  }
 
-.cart-contact-details h3 {
-  font-size: 18px;
-  color: #2c2c2c;
-  font-weight: 550;
-  margin-bottom: 20px;
-}
+  .cart-contact-details h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
 
-.cart-contact-info {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+  .cart-contact-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-.cart-contact-number {
-  margin-left: 30px;
-}
+  .cart-contact-number {
+    margin-left: 30px;
+  }
 
-.cart-address-form h3 {
-  font-size: 18px;
-  color: #2c2c2c;
-  font-weight: 550;
-  margin-bottom: 15px;
-}
+  .cart-address-form h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 15px;
+  }
 
-.cart-address-form form {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .cart-address-form form {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.cart-address-form input {
-  width: 48%;
-  padding: 10px;
-  margin: 10px 1%;
-  border: 1px solid #ccc;
-}
+  .cart-address-form input {
+    width: 48%;
+    padding: 10px;
+    margin: 10px 1%;
+    border: 1px solid #ccc;
+  }
 
-.cart-items {
-  width: 40%;
-}
-/* 
+  .cart-items {
+    width: 40%;
+  }
+  /* 
 .cart-coupon-section {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   margin-bottom: 20px;
 } */
 
-.cart-items-counting {
-  padding-left: 10px;
+  .cart-items-counting {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .cart-items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-name-price {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    margin-left: 10px;
+  }
+
+  .cart-item .cart-item-name {
+    margin-left: 10px;
+    height: 47px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  .cart-item .cart-item-price {
+    font-weight: bold;
+    margin-inline-start: auto;
+    padding-right: 5px;
+  }
+
+  .cart-item-out-of-stock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #ccc;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item-out-of-stock img {
+    opacity: 0.5;
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-remove-quantity-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-quantity-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid red;
+    color: red;
+    width: 70px;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
+
+  .cart-quantity-controls button {
+    font-weight: 600;
+  }
+
+  .cart-item-quantity {
+    font-weight: 600;
+  }
+
+  .cart-remove-item {
+    color: darkred;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .cart-bill-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
+
+  .cart-bill-details span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details .cart-bill-rupees {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .cart-continue-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid rgb(189, 148, 95);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cart-continue-btn:disabled {
+    background-color: #e0e0e0;
+  }
+}
+
+/* ----------------------------------------------------------------------------- */
+/* Styling for tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 88px 0 10px 0;
+  }
+
+  .cart-out-of-stock-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+  }
+
+  .cart-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+  }
+
+  .cart-details {
+    display: none;
+  }
+
+  .cart-items {
+    width: 98%;
+  }
+  /* 
+.cart-coupon-section {
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.cart-items-list {
-  max-height: 400px;
-  overflow-y: auto;
-  width: 100%;
-}
-
-.cart-item {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 20px;
-  border: 1px solid burlywood;
-  border-radius: 5px;
-  height: 90px;
-  padding: 10px;
-}
+} */
 
-.cart-item img {
-  width: 50px;
-  height: 50px;
-}
+  .cart-items-counting {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+  }
 
-.cart-item-name-price {
-  display: flex;
-  width: 100%;
-  height: 47px;
-  margin-left: 10px;
-}
+  .cart-items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+  }
 
-.cart-item .cart-item-name {
-  margin-left: 10px;
-  height: 47px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
 
-.cart-item .cart-item-price {
-  font-weight: bold;
-  margin-inline-start: auto;
-  padding-right: 5px;
-}
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+  }
 
-.cart-item-out-of-stock {
-  display: flex;
-  flex-direction: column;
+  .cart-item-name-price {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    margin-left: 10px;
+  }
+
+  .cart-item .cart-item-name {
+    margin-left: 10px;
+    height: 47px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  .cart-item .cart-item-price {
+    font-weight: bold;
+    margin-inline-start: auto;
+    padding-right: 5px;
+  }
+
+  .cart-item-out-of-stock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #ccc;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item-out-of-stock img {
+    opacity: 0.5;
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-remove-quantity-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-quantity-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid red;
+    color: red;
+    width: 70px;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
+
+  .cart-quantity-controls button {
+    font-weight: 600;
+  }
+
+  .cart-item-quantity {
+    font-weight: 600;
+  }
+
+  .cart-remove-item {
+    color: darkred;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .cart-bill-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
+
+  .cart-bill-details span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details .cart-bill-rupees {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .cart-continue-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid rgb(189, 148, 95);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cart-continue-btn:disabled {
+    background-color: #e0e0e0;
+  }
+}
+/* ----------------------------------------------------------------------------- */
+/* Styles for Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 88px 0 10px 0;
+  }
+
+  .cart-out-of-stock-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+  }
+
+  .cart-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+  }
+
+  .cart-details {
+    display: none;
+  }
+
+  .cart-items {
+    width: 98%;
+  }
+  /* 
+.cart-coupon-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
   margin-bottom: 20px;
-  background-color: #ccc;
-  border: 1px solid burlywood;
-  border-radius: 5px;
-  height: 90px;
-  padding: 10px;
+} */
+
+  .cart-items-counting {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .cart-items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-name-price {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    margin-left: 10px;
+  }
+
+  .cart-item .cart-item-name {
+    margin-left: 10px;
+    height: 47px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  .cart-item .cart-item-price {
+    font-weight: bold;
+    margin-inline-start: auto;
+    padding-right: 5px;
+  }
+
+  .cart-item-out-of-stock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #ccc;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item-out-of-stock img {
+    opacity: 0.5;
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-remove-quantity-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-quantity-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid red;
+    color: red;
+    width: 70px;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
+
+  .cart-quantity-controls button {
+    font-weight: 600;
+  }
+
+  .cart-item-quantity {
+    font-weight: 600;
+  }
+
+  .cart-remove-item {
+    color: darkred;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .cart-bill-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
+
+  .cart-bill-details span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details .cart-bill-rupees {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .cart-continue-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid rgb(189, 148, 95);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cart-continue-btn:disabled {
+    background-color: #e0e0e0;
+  }
 }
 
-.cart-item-out-of-stock img {
-  opacity: 0.5;
-  width: 50px;
-  height: 50px;
-}
+/* ----------------------------------------------------------------------------- */
+/* Styles for Extra Small Screens */
+@media (max-width: 480px) {
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 80px 0 10px 0;
+  }
 
-.cart-item-remove-quantity-btn {
-  display: flex;
-  justify-content: space-between;
-}
+  .cart-out-of-stock-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+  }
 
-.cart-quantity-controls {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid red;
-  color: red;
-  width: 70px;
-  padding: 0px 5px;
-  border-radius: 5px;
-}
+  .cart-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+  }
 
-.cart-quantity-controls button {
-  font-weight: 600;
-}
+  .cart-details {
+    display: none;
+  }
 
-.cart-item-quantity {
-  font-weight: 600;
-}
-
-.cart-remove-item {
-  color: darkred;
-  border: none;
-  cursor: pointer;
-  font-weight: 400;
-}
-
-.cart-bill-details {
-  display: flex;
-  flex-direction: column;
+  .cart-items {
+    width: 90%;
+  }
+  /* 
+.cart-coupon-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
   margin-bottom: 20px;
-  border-radius: 5px;
-  padding: 10px;
-}
+} */
 
-.cart-bill-details h3 {
-  font-size: 18px;
-  color: #2c2c2c;
-  font-weight: 550;
-  margin-bottom: 20px;
-}
+  .cart-items-counting {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+  }
 
-.cart-bill-details span {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid burlywood;
-  border-radius: 5px;
-  padding: 10px;
-}
+  .cart-items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+  }
 
-.cart-bill-details .cart-bill-rupees {
-  font-weight: bold;
-  font-size: large;
-}
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
 
-.cart-continue-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #ccc;
-  border: 1px solid rgb(189, 148, 95);
-  border-radius: 5px;
-  cursor: pointer;
-}
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+  }
 
-.cart-continue-btn:disabled {
-  background-color: #e0e0e0;
+  .cart-item-name-price {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    margin-left: 10px;
+  }
+
+  .cart-item .cart-item-name {
+    margin-left: 10px;
+    height: 47px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  .cart-item .cart-item-price {
+    font-weight: bold;
+    margin-inline-start: auto;
+    padding-right: 5px;
+  }
+
+  .cart-item-out-of-stock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #ccc;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cart-item-out-of-stock img {
+    opacity: 0.5;
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-remove-quantity-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-quantity-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid red;
+    color: red;
+    width: 70px;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
+
+  .cart-quantity-controls button {
+    font-weight: 600;
+  }
+
+  .cart-item-quantity {
+    font-weight: 600;
+  }
+
+  .cart-remove-item {
+    color: darkred;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .cart-bill-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    font-weight: 550;
+    margin-bottom: 20px;
+  }
+
+  .cart-bill-details span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .cart-bill-details .cart-bill-rupees {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .cart-continue-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid rgb(189, 148, 95);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cart-continue-btn:disabled {
+    background-color: #e0e0e0;
+  }
 }

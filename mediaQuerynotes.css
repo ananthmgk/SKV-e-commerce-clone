@@ -4,7 +4,7 @@
 }
 
 /* Styling for tablet */
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .header-shop-name {
     font-size: 24px;
   }

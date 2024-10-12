@@ -12,6 +12,9 @@ import CategoryCard from "./components/CategoryCard";
 import CategoryMenu from "./components/CategoryMenu";
 import AccountPage from "./components/AccountPage";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux"; // this is for redux
+import { PersistGate } from "redux-persist/integration/react"; // this is to save the data even after refreshed..
+import { store, persistor } from "./redux/store"; // here persistor also to save the data.
 
 const App = () => {
   return (
@@ -73,4 +76,10 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={appRouter} />
+    </PersistGate>
+  </Provider>
+);

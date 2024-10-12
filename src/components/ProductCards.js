@@ -1,21 +1,12 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/ProductCards.css";
-import {
-  addToCart,
-  getProductQuantity,
-  calculateDiscount,
-} from "../uttilites/functions";
+import { calculateDiscount, getProductQuantity } from "../uttilites/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, removeItemFromCart } from "../redux/cartSlice";
 
 const ProductCards = (props) => {
-  // State to manage cart in local storage.
-  const [cart, setCart] = useState([]);
-
-  // Load cart from localStorage on component mount
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
-  }, []); // Empty array to ensure it runs only once on mount
+  const dispatch = useDispatch(); // Use dispatch to trigger actions
+  const cartItems = useSelector((state) => state.cart.cartItems); // Access cart state from Redux
 
   let originalPrice = props.product.mrp;
   let discountedPrice = props.product.sale_price;
@@ -45,55 +36,33 @@ const ProductCards = (props) => {
         <p>Out of Stock</p>
       ) : (
         <div className="prod-card-add-to-cart-container">
-          {getProductQuantity(props.product.prod_sku) > 0 ? (
+          {getProductQuantity(props.product.prod_sku, cartItems) > 0 ? (
             <button
               className="prod-card-remove-btn"
-              onClick={() => {
-                const updatedCart = cart
-                  .map((item) => {
-                    if (item.prod_sku === props.product.prod_sku) {
-                      // Reduce quantity
-                      if (item.quantity > 1) {
-                        return { ...item, quantity: item.quantity - 1 }; // Safely reduce quantity
-                      } else {
-                        return null; // Mark for removal if quantity goes to 0
-                      }
-                    }
-                    return item; // No change to other items
-                  })
-                  .filter(Boolean); // Remove any items that are null
-
-                // Save updated cart to localStorage
-                localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-                // Update state
-                setCart(updatedCart);
-              }}
+              onClick={() =>
+                dispatch(removeItemFromCart(props.product.prod_sku))
+              }
             >
               -
             </button>
           ) : null}
 
           <button
-            onClick={() => {
-              const updatedCart = addToCart(props.product);
-              setCart(updatedCart); // update the state
-            }}
+            onClick={() => dispatch(addItemToCart(props.product))}
             className="prod-card-add-to-cart-btn"
           >
-            {getProductQuantity(props.product.prod_sku) >= props.product.qty
+            {getProductQuantity(props.product.prod_sku, cartItems) >=
+            props.product.qty
               ? `Only ${props.product.qty} left!`
-              : getProductQuantity(props.product.prod_sku) > 0
-              ? getProductQuantity(props.product.prod_sku)
+              : getProductQuantity(props.product.prod_sku, cartItems) > 0
+              ? getProductQuantity(props.product.prod_sku, cartItems)
               : "+ Add"}
           </button>
-          {getProductQuantity(props.product.prod_sku) > 0 &&
-          getProductQuantity(props.product.prod_sku) < props.product.qty ? (
+          {getProductQuantity(props.product.prod_sku, cartItems) > 0 &&
+          getProductQuantity(props.product.prod_sku, cartItems) <
+            props.product.qty ? (
             <button
-              onClick={() => {
-                const updatedCart = addToCart(props.product);
-                setCart(updatedCart); // update the state
-              }}
+              onClick={() => dispatch(addItemToCart(props.product))}
               className="prod-card-add-btn"
             >
               +

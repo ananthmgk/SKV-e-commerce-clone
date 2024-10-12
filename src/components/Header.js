@@ -4,10 +4,10 @@ import {
   faCircleUser,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+// import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/logo/Skv logo.webp";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux"; // Import useSelector to access the store
 
 // npm i --save @fortawesome/pro-solid-svg-icons
 // npm i --save @fortawesome/pro-regular-svg-icons
@@ -17,25 +17,7 @@ import { useEffect, useState } from "react";
 //  these are to install in terminal
 
 const Header = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartItems(storedCart);
-  }, []);
-
-  // Listen for cart updates in localStorage to keep count updated
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCartItems(storedCart);
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
+  const cartItems = useSelector((state) => state.cart.cartItems); // Get cart items from Redux state
 
   return (
     <header className="app-header">

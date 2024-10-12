@@ -15,6 +15,7 @@ export function calculateDiscount(originalPrice, discountedPrice) {
 }
 
 // Function to handle adding products to cart
+// {{{and now this function not in use because Redux replaced it..........}}}
 export const addToCart = (product) => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -41,9 +42,14 @@ export const addToCart = (product) => {
   return storedCart;
 };
 
-// Function to get product quantity from cart
-export const getProductQuantity = (prod_sku) => {
-  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  const productInCart = storedCart.find((item) => item.prod_sku === prod_sku);
+// // Function to get product quantity from cart
+// export const getProductQuantity = (prod_sku) => {
+//   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//   const productInCart = storedCart.find((item) => item.prod_sku === prod_sku);
+//   return productInCart ? productInCart.quantity : 0;
+// };
+
+export const getProductQuantity = (prod_sku, cartItems) => {
+  const productInCart = cartItems.find((item) => item.prod_sku === prod_sku);
   return productInCart ? productInCart.quantity : 0;
 };

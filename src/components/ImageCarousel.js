@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import slide1SPAWorld from "../assets/Images/slider/Slide1-SKV-World.jpg";
-import slide2SPAWorld from "../assets/Images/slider/Slide2-SKV-World.jpg";
+import slide1RKRWorld from "../assets/Images/slider/Slide1-RKR-World.jpg";
+import slide2RKRWorld from "../assets/Images/slider/Slide2-RKR-World.jpg";
 
 const ImageCarousel = () => {
   return (
@@ -69,7 +69,7 @@ const ImageCarousel = () => {
         swipeable
       >
         <img
-          src={slide1SPAWorld}
+          src={slide1RKRWorld}
           alt="banner1"
           style={{
             display: "block",
@@ -78,7 +78,7 @@ const ImageCarousel = () => {
           }}
         />
         <img
-          src={slide2SPAWorld}
+          src={slide2RKRWorld}
           style={{
             display: "block",
             margin: "auto",

@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
-import logo from "../assets/Images/logo/Skv logo.webp";
+import logo from "../assets/Images/logo/RKR logo.png";
 import { useSelector } from "react-redux"; // Import useSelector to access the store
 
 // npm i --save @fortawesome/pro-solid-svg-icons
@@ -27,7 +27,7 @@ const Header = () => {
         </Link>
         <Link to="/">
           <div className="header-shop-name">
-            <h1 className="title-name">SKV WORLD</h1>
+            <h1 className="title-name">RKR WORLD</h1>
             <p className="sub-title">Pocket-friendly shop</p>
           </div>
         </Link>

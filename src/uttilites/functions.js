@@ -53,3 +53,12 @@ export const getProductQuantity = (prod_sku, cartItems) => {
   const productInCart = cartItems.find((item) => item.prod_sku === prod_sku);
   return productInCart ? productInCart.quantity : 0;
 };
+
+// export const getProductQuantity = (prod_sku, cartItems) => {
+//   // Ensure cartItems is not undefined or null
+//   if (!cartItems || cartItems.length === 0) {
+//     return 0;
+//   }
+//   const productInCart = cartItems.find((item) => item.prod_sku === prod_sku);
+//   return productInCart ? productInCart.quantity : 0;
+// };

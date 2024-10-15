@@ -2,20 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import "../styles/ProductMenu.css";
-import {
-  addToCart,
-  getProductQuantity,
-  calculateDiscount,
-} from "../uttilites/functions";
+import { getProductQuantity, calculateDiscount } from "../uttilites/functions";
 import GetTheDate from "./GetTheDate";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, removeItemFromCart } from "../redux/cartSlice";
 
 const ProductsMenu = () => {
   const { ProductMenuId } = useParams();
+  const dispatch = useDispatch(); // Use dispatch to trigger actions
+  const cartItems = useSelector((state) => state.cart.cartItems); // Access cart state from Redux
 
   const [products, setProducts] = useState(null);
   const [showDate, setShowDate] = useState(false);
-  // State to manage cart in local storage.
-  const [cart, setCart] = useState([]);
 
   const handleShowDate = () => {
     setShowDate(!showDate);
@@ -23,8 +21,6 @@ const ProductsMenu = () => {
 
   useEffect(() => {
     getProductMenu();
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
   }, []);
 
   async function getProductMenu() {
@@ -76,61 +72,33 @@ const ProductsMenu = () => {
                 ) : (
                   <div className="product-menu-action-buttons">
                     <div className="product-menu-add-to-cart-container">
-                      {getProductQuantity(product.prod_sku) > 0 ? (
+                      {getProductQuantity(product.prod_sku, cartItems) > 0 ? (
                         <button
                           className="product-menu-remove-btn"
-                          onClick={() => {
-                            const updatedCart = cart
-                              .map((item) => {
-                                if (item.prod_sku === product.prod_sku) {
-                                  // Reduce quantity
-                                  if (item.quantity > 1) {
-                                    return {
-                                      ...item,
-                                      quantity: item.quantity - 1,
-                                    }; // Safely reduce quantity
-                                  } else {
-                                    return null; // Mark for removal if quantity goes to 0
-                                  }
-                                }
-                                return item; // No change to other items
-                              })
-                              .filter(Boolean); // Remove any items that are null
-
-                            // Save updated cart to localStorage
-                            localStorage.setItem(
-                              "cart",
-                              JSON.stringify(updatedCart)
-                            );
-
-                            // Update state
-                            setCart(updatedCart);
-                          }}
+                          onClick={() =>
+                            dispatch(removeItemFromCart(product.prod_sku))
+                          }
                         >
                           -
                         </button>
                       ) : null}
 
                       <button
-                        onClick={() => {
-                          const updatedCart = addToCart(product);
-                          setCart(updatedCart); // update the state
-                        }}
+                        onClick={() => dispatch(addItemToCart(product))}
                         className="product-menu-add-to-cart-btn"
                       >
-                        {getProductQuantity(product.prod_sku) >= product.qty
+                        {getProductQuantity(product.prod_sku, cartItems) >=
+                        product.qty
                           ? `Only ${product.qty} left!`
-                          : getProductQuantity(product.prod_sku) > 0
-                          ? getProductQuantity(product.prod_sku)
+                          : getProductQuantity(product.prod_sku, cartItems) > 0
+                          ? getProductQuantity(product.prod_sku, cartItems)
                           : "+ Add"}
                       </button>
-                      {getProductQuantity(product.prod_sku) > 0 &&
-                      getProductQuantity(product.prod_sku) < product.qty ? (
+                      {getProductQuantity(product.prod_sku, cartItems) > 0 &&
+                      getProductQuantity(product.prod_sku, cartItems) <
+                        product.qty ? (
                         <button
-                          onClick={() => {
-                            const updatedCart = addToCart(product);
-                            setCart(updatedCart); // update the state
-                          }}
+                          onClick={() => dispatch(addItemToCart(product))}
                           className="product-menu-add-btn"
                         >
                           +

@@ -38,6 +38,7 @@
 
 .header-logo-img {
   height: 55px;
+  border-radius: 50%;
 }
 
 .header-right {

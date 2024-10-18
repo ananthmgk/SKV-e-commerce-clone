@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react";
 import "../styles/Cart.css";
 import { calculateDiscount } from "../uttilites/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCartItems } from "../redux/cartSlice";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const dispatch = useDispatch(); // Use dispatch to trigger actions
+  const storedCart = useSelector((state) => state.cart.cartItems); // Access cart state from Redux
 
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartItems(storedCart);
-  }, []);
-
-  // Update local storage whenever cartItems state changes
-  useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
+  const [cartItems, setCartItems] = useState(storedCart);
 
   const [address, setAddress] = useState({
     name: "",
@@ -26,9 +19,14 @@ const Cart = () => {
     addressLine: "",
   });
 
+  // Sync the storedCart from Redux with cartItems state whenever storedCart changes
+  useEffect(() => {
+    setCartItems(storedCart);
+  }, [storedCart]);
+
   const handleQuantityChange = (id, action) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) => {
+    setCartItems((prevItems) => {
+      const updatedItems = prevItems.map((item) => {
         if (item.prod_sku === id) {
           if (action === "increase") {
             if (item.quantity >= item.qty) {
@@ -44,9 +42,25 @@ const Cart = () => {
           }
         }
         return item;
-      })
-    );
+      });
+
+      // After updating the cartItems locally, return the updated array
+      return updatedItems;
+    });
+
+    // Move the dispatch to a separate `useEffect` hook to ensure Redux state is updated after local state change
   };
+
+  // useEffect(() => {
+  //   if (cartItems.length > 0) {
+  //   dispatch(updateCartItems(cartItems));
+  //   }
+  // }, [cartItems]);
+
+  // Sync the cartItems with the Redux store whenever the cartItems state changes
+  useEffect(() => {
+    dispatch(updateCartItems(cartItems));
+  }, [cartItems, dispatch]);
 
   // Updating Properties in Objects (Immutable Update):
 
@@ -63,6 +77,8 @@ const Cart = () => {
     setCartItems((prevItems) =>
       prevItems.filter((item) => item.prod_sku !== id)
     );
+    // Dispatch the updated cartItems to Redux
+    dispatch(updateCartItems(cartItems));
   };
 
   const handleInputChange = (e) => {

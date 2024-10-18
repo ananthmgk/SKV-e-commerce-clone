@@ -38,9 +38,15 @@ const cartSlice = createSlice({
         }
       }
     },
+
+    updateCartItems: (state, action) => {
+      // Replaces the entire cart with the updated cartItems array
+      state.cartItems = action.payload;
+    },
   },
 });
 
-export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, updateCartItems } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
